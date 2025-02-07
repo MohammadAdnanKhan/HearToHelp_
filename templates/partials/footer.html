@@ -1,0 +1,79 @@
+<div class="container footer mt-5 mb-2">
+    <footer class="pt-5">
+        <div class="row">
+            <div class="col-md-5 mb-3 description">
+                <h4><img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" width="35" height="35"
+                        class="me-2 logo">Hear the Unspoken,
+                    Help the
+                    Heart</h4>
+            </div>
+            <div class="col-6 col-md-2  offset-md-1 mb-3">
+                <h5>Our Work</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="/about#mission-div" class="nav-link p-0 text-body-secondary">Our
+                            Mission</a></li>
+                    <li class="nav-item mb-2"><a href="/about#Principles" class="nav-link p-0 text-body-secondary">Core
+                            Principles</a></li>
+                    <li class="nav-item mb-2"><a href="/about#Team" class="nav-link p-0 text-body-secondary">Contact
+                            Us</a></li>
+                </ul>
+            </div>
+
+            <div class="col-6 col-md-2 mb-3">
+                <h5>Other Resources</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="/spiritual-resources"
+                            class="nav-link p-0 text-body-secondary">Spiritual
+                            Materials</a></li>
+                    <li class="nav-item mb-2"><a href="/educational-resources"
+                            class="nav-link p-0 text-body-secondary">Education
+                            Materials</a></li>
+                    <li class="nav-item mb-2"><a href="/counsellors"
+                            class="nav-link p-0 text-body-secondary">Counsellors</a></li>
+                    <li class="nav-item mb-2"><a href="/community#FAQs-section"
+                            class="nav-link p-0 text-body-secondary">FAQs</a>
+                    </li>
+                    <li class="nav-item mb-2"><a href="/emergency-contacts"
+                            class="nav-link p-0 text-body-secondary">Emergency
+                            Contacts</a></li>
+                </ul>
+            </div>
+
+            <div class="col-6 col-md-2 mb-3">
+                <h5>Legal</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="/terms" class="nav-link p-0 text-body-secondary">Privacy
+                            Policy</a></li>
+                    <li class="nav-item mb-2"><a href="/terms#TOS" class="nav-link p-0 text-body-secondary">Terms of
+                            Service</a>
+                    </li>
+                    <li class="nav-item mb-2"><a href="/terms#Disclaimer"
+                            class="nav-link p-0 text-body-secondary">Disclaimer</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="d-flex flex-column justify-content-center align-items-center py-4 my-4 border-top">
+            <p>© 2025 HearToHelp.<br>
+                <a href="/">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" width="20" height="20"
+                        class="me-2 logo">
+                </a>
+                All rights reserved.
+            </p>
+        </div>
+
+    </footer>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+<!-- Custom JS -->
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>
