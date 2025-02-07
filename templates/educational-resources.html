@@ -1,155 +1,148 @@
-{% include 'partials/header.html' %}
-
+{% include 'partials/header.html' %}  
 <div class="container my-5" id="educational-resources">
     <h2 class="text-center mb-4 display-6 fw-bold heading-edu">Articles/Blogs on Mental Health</h2>
-    <p class="lead text-center tagline-edu mb-5 ">
+    <p class="lead text-center tagline-edu mb-5">
         Get guidance from articles written by experts. Explore the connection between physical activity and mental
         well-being through these resources.
     </p>
 
     <!-- Filters -->
     <div class="text-center mb-4 buttons-edu">
-        <button class="btn filter-btn active" onclick="filterArticles('exercise')">Exercise</button>
+        <button class="btn filter-btn active" onclick="showBooks()">Books</button> <!-- Books now active -->
+        <button class="btn filter-btn" onclick="filterArticles('exercise')">Exercise</button>
         <button class="btn filter-btn" onclick="filterArticles('mental-health')">Mental Health</button>
         <button class="btn filter-btn" onclick="filterArticles('lifestyle')">Lifestyle</button>
         <button class="btn filter-btn" onclick="filterArticles('all')">All</button>
-
     </div>
 
-    <!-- Articles Section -->
-    <div class="row gy-4" id="articles-grid">
-        <!-- Articles dynamically rendered -->
-    </div>
+    <!-- Books Section (Initially Visible) -->
+    <div id="books-section" class="row row-cols-1 row-cols-md-3 g-4"></div>
+
+    <!-- Articles Section (Initially Hidden) -->
+    <div class="row gy-4" id="articles-grid" style="display: none;"></div>
 </div>
 
-{% include 'partials/footer.html' %}
+{% include 'partials/footer.html' %}  
+
+<style>
+    .article-card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        text-align: center;
+        height: 100%;
+    }
+
+    .book-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .article-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .article-description {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .article-link {
+        display: inline-block;
+        padding: 8px 12px;
+        background-color: teal;
+        color: white;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+    .book-image {
+        width: 100%;
+        height: 250px;
+        object-fit: contain; /* Ensures the entire image is visible */
+        border-radius: 10px;
+        background-color: #f0f0f0; /* Adds a background in case of transparency */
+        padding: 10px; /* Prevents tight cropping */
+    }
+    
+    
+</style>
+
 <script>
     const articles = [
-        {
-            title: "The Mind/Body Revolution",
-            description: "This article discusses the interconnectedness of mental and physical health.",
-            category: "mental-health",
-            link: "https://www.theguardian.com/society/2025/jan/26/the-mindbody-revolution-how-the-division-between-mental-and-physical-illness-fails-us-all"
-        },
-        {
-            title: "How to Look After Your Mental Health Using Exercise",
-            description: "Explores how physical activity can serve as an alternative treatment for depression.",
-            category: "exercise",
-            link: "https://www.mentalhealth.org.uk/explore-mental-health/publications/how-look-after-your-mental-health-using-exercise"
-        },
-        {
-            title: "Depression and Anxiety: Exercise Eases Symptoms",
-            description: "Discusses research findings on how exercise can improve mood.",
-            category: "exercise",
-            link: "https://www.mayoclinic.org/diseases-conditions/depression/in-depth/depression-and-exercise/art-20046495"
-        },
-        {
-            title: "Physical Activity Is Good for the Mind and the Body",
-            description: "Highlights the mental health benefits of physical activity, including improved cognitive function and reduced risk of depression.",
-            category: "exercise",
-            link: "https://odphp.health.gov/news/202112/physical-activity-good-mind-and-body"
-        },
-        {
-            title: "Role of Physical Activity on Mental Health and Well-Being: A Review",
-            description: "A comprehensive review examining how exercise contributes to better mood, sleep, and overall quality of life.",
-            category: "exercise",
-            link: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9902068/"
-        },
-        {
-            title: "The Mental Health Benefits of Exercise",
-            description: "Explores how regular physical activity can alleviate symptoms of depression, anxiety, and stress, offering practical advice for incorporating exercise into daily life.",
-            category: "exercise",
-            link: "https://www.helpguide.org/wellness/fitness/the-mental-health-benefits-of-exercise"
-        },
-        {
-            title: "Effectiveness of Physical Activity Interventions for Improving Depression, Anxiety, and Distress",
-            description: "Analyzes various studies to conclude that physical activity is highly beneficial for improving symptoms of depression and anxiety.",
-            category: "exercise",
-            link: "https://bjsm.bmj.com/content/57/18/1203"
-        },
-        {
-            title: "Exercise and Mental Health",
-            description: "Discusses the mental health benefits of exercise, including stress reduction, improved sleep, and enhanced mood.",
-            category: "exercise",
-            link: "https://www.healthdirect.gov.au/exercise-and-mental-health"
-        },
-        {
-            title: "How Running and Resistance Training Can Help Depression and Anxiety",
-            description: "Highlights new research indicating significant benefits of running and resistance training in treating depression and anxiety symptoms.",
-            category: "exercise",
-            link: "https://www.psychiatry.org/news-room/apa-blogs/how-running-and-resistance-training-can-help-depre"
-        },
-        {
-            title: "The Benefits of Exercise on Mental Health",
-            description: "Explores how exercise can boost mood, improve sleep, and manage symptoms of depression and anxiety.",
-            category: "exercise",
-            link: "https://www.stmaryshealthcaresystem.org/newsroom/blog-articles/benefits-exercise-mental-health"
-        },
-        {
-            title: "Ecstatic Dance Can Boost Your Mood and Get You in Touch With Yourself",
-            description: "Discusses how unchoreographed, intuitive dancing can promote mental well-being by lifting moods and processing difficult feelings.",
-            category: "mental-health",
-            link: "https://www.verywellmind.com/ecstatic-dance-can-boost-your-mood-and-get-you-in-touch-with-yourself-8696103"
-        },
-        {
-            title: "Lifestyle and Mental Health",
-            description: "Examines how therapeutic lifestyle changes, including exercise, nutrition, and social connections, can improve mental health.",
-            category: "lifestyle",
-            link: "https://en.wikipedia.org/wiki/Lifestyle_and_Mental_Health"
-        },
-        {
-            title: "Study: Taking This Many Steps Each Day Can Improve Mental Health",
-            description: "Reports on a study finding that taking at least 5,000 steps per day is associated with reduced symptoms of depression.",
-            category: "exercise",
-            link: "https://www.health.com/step-count-reduce-depression-study-8769848"
-        },
-        {
-            title: "Neurobiological Effects of Physical Exercise",
-            description: "Explores how exercise influences brain function and structure, contributing to improved mental health.",
-            category: "exercise",
-            link: "https://en.wikipedia.org/wiki/Neurobiological_effects_of_physical_exercise"
-        },
-        {
-            title: "I'm a Psychologist - 6 Tips for Battling Seasonal Affective Disorder",
-            description: "Offers practical advice from a psychologist on managing seasonal affective disorder, including engaging in meaningful activities and exposure to natural light.",
-            category: "mental-health",
-            link: "https://nypost.com/2025/01/02/health/psychologists-6-tips-for-battling-seasonal-affective-disorder/"
-        }
+        { title: "The Mind/Body Revolution", description: "This article discusses the interconnectedness of mental and physical health.", category: "mental-health", link: "https://www.theguardian.com/society/2025/jan/26/the-mindbody-revolution-how-the-division-between-mental-and-physical-illness-fails-us-all" },
+        { title: "How to Look After Your Mental Health Using Exercise", description: "Explores how physical activity can serve as an alternative treatment for depression.", category: "exercise", link: "https://www.mentalhealth.org.uk/explore-mental-health/publications/how-look-after-your-mental-health-using-exercise" },
+        { title: "Depression and Anxiety: Exercise Eases Symptoms", description: "Discusses research findings on how exercise can improve mood.", category: "exercise", link: "https://www.mayoclinic.org/diseases-conditions/depression/in-depth/depression-and-exercise/art-20046495" },
+        { title: "How Healthy Eating Benefits Mental Health", description: "Learn how nutrition impacts brain function and emotional well-being.", category: "lifestyle", link: "https://www.psychologytoday.com/us/blog/urban-survival/202303/how-healthy-eating-benefits-mental-health" },
+        { title: "Mindfulness and Sleep: How They Are Connected", description: "Discover the link between mindfulness practices and improved sleep quality.", category: "lifestyle", link: "https://www.sleepfoundation.org/mindfulness/mindfulness-and-sleep" }
+    ];
+
+    const books = [
+        { title: "The Happiness Trap", author: "Dr. Russ Harris", image: "https://images.penguinrandomhouse.com/cover/9781590305843", link: "https://www.amazon.com/dp/1590305841" },
+        { title: "Lost Connections", author: "Johann Hari", image: "https://prodimage.images-bn.com/pimages/9781632868312_p0_v2_s1200x630.jpg", link: "https://www.amazon.com/dp/163286830X" },
+        { title: "The Body Keeps the Score", author: "Bessel van der Kolk", image: "https://images-na.ssl-images-amazon.com/images/I/81gTwYAhU7L.jpg", link: "https://www.amazon.com/dp/0143127748" },
+        { title: "Atomic Habits", author: "James Clear", image: "https://images-na.ssl-images-amazon.com/images/I/91bYsX41DVL.jpg", link: "https://www.amazon.com/dp/0735211299" },
+        { title: "Why Zebras Don't Get Ulcers", author: "Robert Sapolsky", image: "https://images.macmillan.com/folio-assets/macmillan_us_frontbookcovers_1000H/9780805073690.jpg", link: "https://www.amazon.com/dp/0805073698" }
     ];
 
     function renderArticles(category) {
+        document.getElementById("books-section").style.display = "none";
+        document.getElementById("articles-grid").style.display = "flex";
         const grid = document.getElementById("articles-grid");
-        grid.innerHTML = ""; // Clear existing articles
+        grid.innerHTML = "";
 
-        const filteredArticles = category === "all"
-            ? articles
-            : articles.filter(article => article.category === category);
+        const filteredArticles = category === "all" ? articles : articles.filter(article => article.category === category);
 
         filteredArticles.forEach(article => {
             const card = document.createElement("div");
-            card.className = "article-card";
+            card.className = "col-md-4";
             card.innerHTML = `
-            <h3 class="article-title">${article.title}</h3>
-            <p class="article-description">${article.description}</p>
-            <a href="${article.link}" target="_blank" class="article-link">Read more</a>
-        `;
+                <div class="article-card">
+                    <h3 class="article-title">${article.title}</h3>
+                    <p class="article-description">${article.description}</p>
+                    <a href="${article.link}" target="_blank" class="article-link">Read more</a>
+                </div>
+            `;
             grid.appendChild(card);
         });
     }
 
+    function showBooks() {
+        document.getElementById("articles-grid").style.display = "none";
+        document.getElementById("books-section").style.display = "flex";
+        document.getElementById("books-section").innerHTML = "";
+
+        books.forEach(book => {
+            const bookCard = document.createElement("div");
+            bookCard.className = "col";
+            bookCard.innerHTML = `
+                <div class="article-card">
+                    <img src="${book.image}" alt="${book.title}" class="img-fluid book-image">
+                    <h3 class="article-title">${book.title}</h3>
+                    <p class="article-description">by ${book.author}</p>
+                    <a href="${book.link}" target="_blank" class="article-link">Buy on Amazon</a>
+                </div>
+            `;
+            document.getElementById("books-section").appendChild(bookCard);
+        });
+    }
+
     function filterArticles(category) {
-        // Update active button
+        document.getElementById("books-section").style.display = "none";
+        document.getElementById("articles-grid").style.display = "flex";
+
         const buttons = document.querySelectorAll(".filter-btn");
         buttons.forEach(btn => btn.classList.remove("active"));
         document.querySelector(`[onclick="filterArticles('${category}')"]`).classList.add("active");
 
-        // Render articles
         renderArticles(category);
     }
 
-    // Initialize the page
     window.onload = function () {
-        renderArticles("all");
+        showBooks();
     };
-
 </script>
