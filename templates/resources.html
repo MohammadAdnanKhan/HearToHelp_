@@ -1,0 +1,36 @@
+{% include 'partials/header.html' %}
+
+<div class="container position-relative text-center spiritual-photo">
+    <img src="{{ url_for('static', filename='images/spiritual.jpeg') }}" alt="Descriptive Image"
+        class="img-fluid spiritual-image" style="width: 95%; height: auto;">
+    <div class="position-absolute text-on-img start-50 translate-middle">
+        <h1>In the stillness of the heart, the soul finds its way to peace!</h1>
+        <button onclick="window.location.href='/spiritual-resources'">Try Now</button>
+    </div>
+</div>
+
+<div class="container position-relative text-center educational-photo">
+    <img src="{{ url_for('static', filename='images/education.jpg') }}" alt="Descriptive Image"
+        class="img-fluid educational-image">
+    <div class="position-absolute text-on-img-2">
+        <h1>Empowering the mind is the key to healing.</h1>
+        <button onclick="window.location.href='/educational-resources'">Try Now</button>
+    </div>
+</div>
+
+<div class="container p-6 bg-body-tertiary rounded-3 emergency-contacts">
+    <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold teal-heading">Emergency Contacts</h1>
+        <p class="col-md-8 fs-4 para">Here’s a list of helplines you can reach out to anytime for support with
+            mental health, emotional struggles, or tough situations. These services are here 24/7 to help you or
+            someone you care about with care and guidance.</p>
+
+        <a href="/emergency-contacts"><button class="btn button-emergency btn-lg" type="button">Click
+                Here</button></a>
+    </div>
+</div>
+
+
+
+
+{% include 'partials/footer.html' %}

@@ -1,0 +1,271 @@
+{% include 'partials/header.html' %}
+
+<style>
+    :root {
+        --islamic-green: #0d6d3b;
+        --gold: #c5a047;
+        --light-bg: #f8f6f0;
+        font-family: 'Amiri', serif;
+    }
+
+    .container-text-white {
+        color: white;
+    }
+
+    .counselor-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .counselor-card {
+        background: white;
+        border-radius: 10px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        position: relative;
+        min-height: 720px;
+    }
+
+    .counselor-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .counselor-img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .specialty-badge {
+        background: var(--gold);
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        margin: 0.5rem 0;
+        display: inline-block;
+    }
+
+    .book-btn {
+        background: teal;
+        color: white;
+        border: none;
+        padding: 0.8rem 1.5rem;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 90%;
+        font-size: 1.1rem;
+        margin: 1rem auto;
+        position: absolute;
+        bottom: 0rem;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 2000;
+    }
+
+    .modal-content {
+        background: white;
+        width: 90%;
+        max-width: 500px;
+        margin: 2rem auto;
+        padding: 2rem;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .modal-content #bookingForm {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .modal-content #bookingForm label {
+        margin-bottom: 0.25rem;
+    }
+
+    .modal-content #bookingForm input {
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+    }
+
+    .modal-content #bookingForm input:hover {
+        border-color: var(--gold);
+    }
+
+    .modal-content #bookingForm input:focus {
+        border-color: var(--islamic-green);
+    }
+
+    .modal-content #bookingForm textarea {
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .modal-content #bookingForm textarea:hover {
+        border-color: var(--gold);
+    }
+
+    .modal-content #bookingForm textarea:focus {
+        border-color: var(--islamic-green);
+    }
+
+    .modal-content #bookingForm .buttons {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .modal-content #bookingForm .confirm-btn,
+    .modal-content #bookingForm .cancel-btn {
+        border: none;
+        padding: 0.8rem 1.5rem;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 40%;
+        font-size: 1rem;
+        margin: 1rem auto;
+    }
+
+    .modal-content #bookingForm .confirm-btn {
+        background: var(--islamic-green);
+        color: white;
+    }
+
+    .modal-content #bookingForm .confirm-btn:hover {
+        background: var(--gold);
+        transition: 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .modal-content #bookingForm .cancel-btn {
+        background: #fff;
+        border: 2px solid var(--islamic-green);
+    }
+
+    .modal-content #bookingForm .cancel-btn:hover {
+        border-color: #ff0000;
+    }
+</style>
+
+<div class="container">
+    <div class="container-text-white">
+        <h1>Professional Counseling Services</h1>
+        <p>Connect with qualified mental health professionals who understand your needs</p>
+    </div>
+
+    <div class="counselor-grid">
+        <!-- Counselor 1 -->
+        <div class="counselor-card">
+            <img src="{{ url_for('static', filename='images/reyyan.jpeg') }}" alt="Dr. ABC" class="counselor-img">
+            <h2>Dr. Abc</h2>
+            <div class="specialty-badge">Clinical Psychologist</div>
+            <p>PhD in Clinical Psychology, 12 years experience</p>
+            <p>Specializations:
+            <ul>
+                <li>Anxiety & Depression</li>
+                <li>Trauma Recovery</li>
+
+            </ul>
+            </p>
+            <p>Languages: Hindi, English, Urdu, Arabic</p>
+            <p>Availability: Mon-Fri (9 AM - 5 PM)</p>
+            <button class="book-btn" onclick="openBooking('Dr. ABC')">Book Session</button>
+        </div>
+
+        <!-- Counselor 2 -->
+        <div class="counselor-card">
+            <img src="{{ url_for('static', filename='images/ashrah.jpeg') }}" alt="Dr XYZ" class="counselor-img">
+            <h2>Dr. XYZ</h2>
+            <div class="specialty-badge">Licensed Therapist</div>
+            <p>MA in Counseling Psychology, 8 years experience</p>
+            <p>Specializations:
+            <ul>
+                <li>Youth Counseling</li>
+                <li>Family Therapy</li>
+                <li>Stress Management</li>
+            </ul>
+            </p>
+            <p>Languages: Hindi, English, French, Somali</p>
+            <p>Availability: Wed-Sun (11 AM - 7 PM)</p>
+            <button class="book-btn" onclick="openBooking('Dr. XYZ')">Book Session</button>
+        </div>
+
+        <!-- Add more counselors -->
+    </div>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <h2>Book Appointment</h2>
+            <form id="bookingForm">
+                <label>Counselor:</label>
+                <input type="text" id="selectedCounselor" readonly>
+
+                <label>Your Name:</label>
+                <input type="text" required>
+
+                <label>Email:</label>
+                <input type="email" required>
+
+                <label>Preferred Date:</label>
+                <input type="date" required>
+
+                <label>Preferred Time:</label>
+                <input type="time" required>
+
+                <label>Special Requirements:</label>
+                <textarea rows="4"></textarea>
+
+                <div class="buttons">
+                    <button type="button" class="cancel-btn" onclick="closeModal()">Cancel</button>
+                    <button type="submit" class="confirm-btn">Confirm Booking</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Modal Handling
+    function openBooking(counselorName) {
+        document.getElementById('selectedCounselor').value = counselorName;
+        document.getElementById('bookingModal').style.display = 'block';
+    }
+
+    function closeModal() {
+        document.getElementById('bookingModal').style.display = 'none';
+    }
+
+    // Handle form submission
+    document.getElementById('bookingForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        // Add actual booking logic here
+        alert('Booking request submitted! Our team will contact you shortly.');
+        closeModal();
+    });
+
+    // Close modal when clicking outside
+    window.onclick = function (event) {
+        if (event.target == document.getElementById('bookingModal')) {
+            closeModal();
+        }
+    }
+</script>
+
+{% include 'partials/footer.html' %}

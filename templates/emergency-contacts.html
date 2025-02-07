@@ -1,0 +1,150 @@
+<style>
+    /* General styling as before */
+
+
+    .headlinee {
+        color: bisque;
+        font-size: 2.2rem;
+        font-weight: bold;
+    }
+
+    p.lead {
+        font-size: 1.2rem;
+        color: #f5deb3;
+        font-weight: 600;
+        margin-bottom: 30px;
+    }
+
+    #emergency-contacts-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .card {
+        background-color: #f5deb3;
+        /* Bisque background for cards */
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .card-header {
+        background-color: #008080;
+        /* Teal for header */
+        color: #f5deb3;
+        /* Bisque for text */
+        font-size: 1.5rem;
+        padding: 15px;
+        font-weight: bold;
+        cursor: pointer;
+        /* Indicate interactivity */
+        transition: color 0.3s ease, text-decoration 0.3s ease;
+    }
+
+    /* Hover effect for the card-header */
+    .card-header:hover {
+        color: teal;
+        /* Light golden color on hover */
+        text-decoration: underline;
+    }
+
+    .card-body {
+        padding: 20px;
+        font-size: 1rem;
+        color: #333;
+    }
+
+    .card-body a {
+        color: #008080;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .card-body a:hover {
+        text-decoration: underline;
+    }
+
+    .card-body p {
+        margin: 10px 0;
+    }
+
+    @media (max-width: 768px) {
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        p.lead {
+            font-size: 1rem;
+        }
+
+        .card-header {
+            font-size: 1.2rem;
+        }
+
+        .card-body {
+            font-size: 0.9rem;
+        }
+    }
+</style>
+
+
+{% include 'partials/header.html' %}
+
+<div class="container my-5">
+    <h2 class="text-center mb-4 headlinee">Emergency Contacts for Mental Health Support</h2>
+    <p class="lead text-center mb-5">Find urgent support for mental health issues and emotional distress with these
+        trusted helplines and services in India.</p>
+
+    <div id="emergency-contacts-container">
+        <!-- Emergency contacts will be rendered here -->
+    </div>
+</div>
+
+<script>
+    const contacts = [
+        {
+            "name": "National Mental Health Support Helpline",
+            "phone": "9152987821",
+            "details": "A 24/7 mental health support helpline provided by the Ministry of Health & Family Welfare, Government of India. It offers mental health support and counseling during times of distress, depression, or crisis. The service is available for individuals across the country."
+        },
+        {
+            "name": "Snehi - Suicide Prevention Helpline",
+            "phone": "91-22-2772 6771 / 91-22-2772 6773",
+            "details": "Snehi is an NGO in India dedicated to suicide prevention. They offer emotional support, counseling, and intervention for individuals experiencing mental health challenges and suicidal thoughts."
+        },
+        {
+            "name": "Vandrevala Foundation - Mental Health Support",
+            "phone": "9152987821 (24/7)",
+            "details": "Vandrevala Foundation provides mental health counseling and helplines for individuals facing emotional or psychological distress, anxiety, or depression. They also offer professional counseling support for individuals and families."
+        },
+        {
+            "name": "Childline India Foundation (for children in distress)",
+            "phone": "1098",
+            "details": "A free helpline for children in distress or in need of emergency assistance. The service is available 24/7 and can be used by children facing abuse, mental health issues, or any other kind of crisis."
+        }
+    ];
+
+    const container = document.getElementById('emergency-contacts-container');
+    contacts.forEach(contact => {
+        const card = document.createElement('div');
+        card.className = 'card mb-4';
+        card.innerHTML = `
+            <div class="card-header">
+                <h4>${contact.name}</h4>
+            </div>
+            <div class="card-body">
+                <p><strong>Phone:</strong> <a href="tel:${contact.phone}">${contact.phone}</a></p>
+                <p><strong>Details:</strong> ${contact.details}</p>
+            </div>
+        `;
+        container.appendChild(card);
+    });
+</script>
+
+{% include 'partials/footer.html' %}

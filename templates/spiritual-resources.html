@@ -1,0 +1,255 @@
+{% include 'partials/header.html' %}
+
+
+<div id="quran-section" class="container my-5">
+    <div class="text-center mb-4">
+        <h2 class="display-6 fw-bold ">Quranic Verses of Comfort</h2>
+        <p class="lead headline-quran">In the remembrance of Allah do heart find peace</p>
+    </div>
+    <div class="card shadow-lg border-0 rounded-3 p-4">
+        <div class="card-body">
+            <div class="text-center">
+                <!-- Arabic Text -->
+                <p class="arabic fs-3 text-success mb-3" id="arabic-text">
+                    وَأَيُّوبَ إِذْ نَادَىٰ رَبَّهُ
+                </p>
+                <!-- Translation -->
+                <p class="translation text-muted fs-5" id="translation-text">
+                    And [mention] Job, when he called to his Lord. (Qur'an 21:83)
+                </p>
+                <!-- Audio Player -->
+                <audio class="audio-player w-100 mt-3 audio-player" id="ayat-player" controls
+                    src="https://everyayah.com/data/Abdul_Basit_Murattal_64kbps/021083.mp3"></audio>
+            </div>
+        </div>
+        <div class="card-footer bg-light text-center">
+            <button class="btn btn-outline next-verse px-4 py-2" onclick="nextAyah()">Next Verse →</button>
+        </div>
+    </div>
+</div>
+
+<div id="nasheed-section" class="container my-5">
+    <div class="text-center mb-4">
+        <h2 class="display-6 fw-bold">Inspirational Arabic Nasheeds</h2>
+        <p class="lead headline-quran">Let your heart be inspired by the beauty of words and melody</p>
+    </div>
+    <div class="card shadow-lg border-0 rounded-3 p-4">
+        <div class="card-body">
+            <div class="text-center">
+                <!-- Nasheed Title -->
+                <p class="nasheed-title fs-3 text-teal mb-3" id="nasheed-title">
+                    Tala Al Badru Alayna
+                </p>
+                <!-- Description -->
+                <p class="nasheed-description text-muted fs-5" id="nasheed-description">
+                    A traditional Islamic nasheed sung to welcome the Prophet Muhammad (PBUH) in Medina.
+                </p>
+                <!-- Audio Player -->
+                <audio class="audio-player w-100 mt-3 audio-player" id="nasheed-player" controls></audio>
+            </div>
+        </div>
+        <div class="card-footer bg-light text-center">
+            <button class="btn btn-outline next-verse px-4 py-2" onclick="nextNasheed()">Next Nasheed →</button>
+        </div>
+    </div>
+</div>
+
+
+{% include 'partials/footer.html' %}
+
+<script>
+    // Array of 20 Quranic verses with Arabic, English translation, and audio URL.
+    const verses = [
+        {
+            arabic: "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا ﴿٥﴾ إِنَّ مَعَ الْعُسْرِ يُسْرًا ﴿٦﴾",
+            translation: "For indeed, with hardship [will be] ease. Indeed, with hardship [will be] ease. (Qur'an 94:5-6)",
+            audio: "https://everyayah.com/data/Abdul_Basit_Murattal_64kbps/094005.mp3"
+        },
+        {
+            arabic: "وَلَا تَهِنُوا وَلَا تَحْزَنُوا وَأَنتُمُ الْأَعْلَوْنَ إِن كُنتُم مُّؤْمِنِينَ",
+            translation: "So do not weaken and do not grieve, and you will be superior if you are believers. (Qur'an 3:139)",
+            audio: "https://everyayah.com/data/Abdul_Basit_Murattal_64kbps/003139.mp3"
+        },
+        {
+            arabic: "إِنَّمَا يُوَفَّى الصَّابِرُونَ أَجْرَهُم بِغَيْرِ حِسَابٍ",
+            translation: "Indeed, the patient will be given their reward without account. (Qur'an 39:10)",
+            audio: "https://everyayah.com/data/Abdul_Basit_Murattal_64kbps/039010.mp3"
+        },
+        {
+            arabic: "فَصَبْرٌ جَمِيلٌ",
+            translation: "So patience is most beautiful. (Qur'an 12:18)",
+            audio: "https://everyayah.com/data/Abdul_Basit_Murattal_64kbps/012018.mp3"
+        },
+        {
+            arabic: "إِنَّ اللّهَ مَعَ الصَّابِرِينَ",
+            translation: "Indeed, Allah is with the patient. (Qur'an 2:153)",
+            audio: "https://everyayah.com/data/Abdul_Basit_Murattal_64kbps/002153.mp3"
+        },
+        {
+            arabic: "قُل لَّن يُصِيبَنَا إِلَّا مَا كَتَبَ اللَّهُ لَنَا",
+            translation: "Say, 'Never will we be struck except by what Allah has decreed for us.' (Qur'an 9:51)",
+            audio: "https://everyayah.com/data/Abdul_Basit_Murattal_64kbps/009051.mp3"
+        },
+        {
+            arabic: "لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا",
+            translation: "Allah does not burden a soul beyond that it can bear. (Qur'an 2:286)",
+            audio: "https://everyayah.com/data/Abdul_Basit_Murattal_64kbps/002286.mp3"
+        },
+        {
+            arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا اصْبِرُوا وَصَابِرُوا",
+            translation: "O you who have believed, persevere and endure. (Qur'an 3:200)",
+            audio: "https://everyayah.com/data/Abdul_Basit_Murattal_64kbps/003200.mp3"
+        },
+        {
+            arabic: "الَّذِينَ آمَنُوا وَتَطْمَئِنُّ قُلُوبُهُمْ بِذِكْرِ اللَّهِ",
+            translation: "Those who believe, and whose hearts find rest in the remembrance of Allah. (Qur'an 13:28)",
+            audio: "https://everyayah.com/data/Abdul_Basit_Murattal_64kbps/013028.mp3"
+        },
+        {
+            arabic: "أُولَٰئِكَ الَّذِينَ يُؤْمِنُونَ بِالْغَيْبِ",
+            translation: "They are the ones who believe in the unseen. (Qur'an 8:2)",
+            audio: "https://everyayah.com/data/Abdul_Basit_Murattal_64kbps/008002.mp3"
+        },
+        {
+            arabic: "وَلَا تَكُن كَالَّذِينَ نَسُوا اللَّهَ",
+            translation: "And do not be like those who have forgotten Allah. (Qur'an 11:6)",
+            audio: "https://everyayah.com/data/Abdul_Basit_Murattal_64kbps/011006.mp3"
+        },
+        {
+            arabic: "هُوَ الَّذِي جَعَلَ الْأَرْضَ لَكُمْ",
+            translation: "He is the one who made the earth for you. (Qur'an 67:15)",
+            audio: "https://everyayah.com/data/Abdul_Basit_Murattal_64kbps/067015.mp3"
+        },
+        {
+            arabic: "اللَّهُ قَدْ أَحَاطَ عِبَادَهُ",
+            translation: "Allah has encompassed His servants. (Qur'an 33:43)",
+            audio: "https://everyayah.com/data/Abdul_Basit_Murattal_64kbps/033043.mp3"
+        },
+        {
+            arabic: "وَأَيُّوبَ إِذْ نَادَىٰ رَبَّهُ",
+            translation: "And [mention] Job, when he called to his Lord. (Qur'an 21:83)",
+            audio: "https://everyayah.com/data/Abdul_Basit_Murattal_64kbps/021083.mp3"
+        },
+        {
+            arabic: "يَا بَنِيَّ لَا تَقْطَعُوا دَرْبِي",
+            translation: "O my sons, do not lose hope. (Qur'an 12:87)",
+            audio: "https://everyayah.com/data/Abdul_Basit_Murattal_64kbps/012087.mp3"
+        },
+        {
+            arabic: "إِذْ أَوَى الْفَتَيَانِ",
+            translation: "When the youths sought refuge. (Qur'an 18:10)",
+            audio: "https://everyayah.com/data/Abdul_Basit_Murattal_64kbps/018010.mp3"
+        },
+        {
+            arabic: "إِنَّ الَّذِينَ آمَنُوا",
+            translation: "Indeed, those who believe will receive mercy. (Qur'an 19:96)",
+            audio: "https://everyayah.com/data/Abdul_Basit_Murattal_64kbps/019096.mp3"
+        },
+        {
+            arabic: "لَوْ أَنزَلْنَا هَٰذَا الْقُرْآنَ",
+            translation: "Had We sent down this Qur'an upon a mountain, you would have seen it humbled. (Qur'an 59:21)",
+            audio: "https://everyayah.com/data/Abdul_Basit_Murattal_64kbps/059021.mp3"
+        },
+        {
+            arabic: "إِلَّا مَن تَابَ وَآمَنَ",
+            translation: "Except for those who repent, believe and do righteous work. (Qur'an 25:70)",
+            audio: "https://everyayah.com/data/Abdul_Basit_Murattal_64kbps/025070.mp3"
+        },
+        {
+            arabic: "يَا أَيُّهَا النَّاسُ",
+            translation: "O mankind, there has come to you instruction from your Lord and healing for what is in the breasts. (Qur'an 10:57)",
+            audio: "https://everyayah.com/data/Abdul_Basit_Murattal_64kbps/010057.mp3"
+        }
+    ];
+
+    let currentAyah = 0;
+
+    function updateAyahDisplay() {
+        const ayah = verses[currentAyah];
+        document.getElementById('arabic-text').innerText = ayah.arabic;
+        document.getElementById('translation-text').innerText = ayah.translation;
+        const audioPlayer = document.getElementById('audio-player');
+        audioPlayer.src = ayah.audio;
+        // Optionally, uncomment the next line to autoplay the recitation
+        // audioPlayer.play();
+    }
+
+    function nextAyah() {
+        currentAyah = (currentAyah + 1) % verses.length;
+        updateAyahDisplay();
+    }
+
+    // Reflection Journal functionality
+    function saveJournal() {
+        const entry = document.getElementById('journal').value;
+        localStorage.setItem('journalEntry', entry);
+        alert('Reflection saved locally');
+    }
+
+    // Initialize the page with the first verse and load saved journal entry if any
+    window.onload = function () {
+        updateAyahDisplay();
+        const savedEntry = localStorage.getItem('journalEntry');
+        if (savedEntry) {
+            document.getElementById('journal').value = savedEntry;
+        }
+    }
+
+
+
+    // Array of Nasheeds with title, description, and audio URL
+    const nasheeds = [
+        {
+            title: "A Clarification",
+            audio: "https://archive.org/download/Muhammad-AlMuqit-nasheed/A%20Clarification%20-%20Muhammad%20Al%20Muqit.mp3"
+        },
+        {
+            title: "Afrahaan Kubraa",
+            audio: "https://archive.org/download/Muhammad-AlMuqit-nasheed/Afrahaan%20Kubraa.mp3"
+        },
+        {
+            title: "My Arabic Language",
+            audio: "https://archive.org/download/Muhammad-AlMuqit-nasheed/My%20Arabic%20Language%20-%20Muhammad%20Al%20Muqit.mp3"
+        },
+        {
+            title: "My Hope",
+            audio: "https://archive.org/download/Muhammad-AlMuqit-nasheed/My%20Hope%20-%20Muhammad%20Al%20Muqit.mp3"
+        },
+        {
+            title: "My Messenger",
+            audio: "https://archive.org/download/Muhammad-AlMuqit-nasheed/My%20Messenger%20-%20Muhammad%20Al%20Muqit.mp3"
+        },
+        {
+            title: "The Sins",
+            audio: "https://archive.org/download/Muhammad-AlMuqit-nasheed/The%20Sins%20-%20Muhammad%20Al%20Muqit.mp3"
+        },
+        {
+            title: "The Way of The Tears",
+            audio: "https://archive.org/download/Muhammad-AlMuqit-nasheed/The%20Way%20of%20The%20Tears%20-%20Muhammad%20Al%20Muqit.mp3"
+        }
+    ];
+
+    let currentNasheed = 0;
+
+    function updateNasheedDisplay() {
+        const nasheed = nasheeds[currentNasheed];
+        document.getElementById('nasheed-title').innerText = nasheed.title;
+        const audioPlayer = document.getElementById('nasheed-player');
+        audioPlayer.pause(); // Pause playback before changing
+        audioPlayer.src = nasheed.audio; // Update the audio source
+        audioPlayer.load(); // Load the new source without autoplaying
+    }
+
+    function nextNasheed() {
+        const audioPlayer = document.getElementById('nasheed-player');
+        audioPlayer.pause(); // Stop the current playback
+        audioPlayer.currentTime = 0; // Reset playback position
+        currentNasheed = (currentNasheed + 1) % nasheeds.length; // Move to the next nasheed
+        updateNasheedDisplay();
+    }
+
+    // Initialize the page with the first nasheed
+    window.onload = function () {
+        updateNasheedDisplay();
+    };
+</script>
