@@ -30,6 +30,10 @@ def resources():
 def community():
     return render_template('community.html')
 
+@app.route("/meditation")
+def meditation():
+    return render_template('meditation.html')
+
 @app.route("/about")
 def about():
     return render_template('about.html')
