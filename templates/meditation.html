@@ -1,0 +1,132 @@
+{% include 'partials/header.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meditation Feature</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Background Image */
+        body {
+            background: url("static/images/nature.jpg") no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        /* Semi-transparent Card */
+        .meditation-card {
+            background: rgba(255, 228, 196, 0.9); /* Slightly more opaque for better readability */
+            padding: 20px;
+        }
+
+        /* Text Styling */
+        .text-bisque {
+            color: bisque;
+        }
+
+        .text-teal {
+            color: teal;
+        }
+
+        /* Button Styling */
+        .next-sound, .spiritual-btn {
+            border-color: teal;
+            color: teal;
+        }
+
+        .next-sound:hover, .spiritual-btn:hover {
+            background-color: teal;
+            color: white;
+        }
+
+        /* Responsive Audio Player */
+        audio {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div id="meditation-section" class="container my-5">
+    <div class="text-center mb-4">
+        <h2 class="display-6 fw-bold text-bisque">Nature Meditation</h2>
+        <p class="lead text-bisque">Relax and rejuvenate with the sounds of nature</p>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-10">
+            <div class="card shadow-lg border-0 rounded-3 meditation-card">
+                <div class="card-body text-center">
+                    <!-- Meditation Title -->
+                    <p class="meditation-title fs-3 text-teal mb-3" id="meditation-title">Birds Chirping & River Water</p>
+                    <!-- Description -->
+                    <p class="meditation-description text-muted fs-5">Soothing sounds of nature to calm your mind and soul.</p>
+                    <!-- Audio Player -->
+                    <audio id="meditation-player" controls></audio>
+                </div>
+                <div class="card-footer bg-light text-center">
+                    <button class="btn btn-outline next-sound px-4 py-2" onclick="nextSound()">Next Sound →</button>
+                    <a href="/spiritual-resources" class="btn btn-outline spiritual-btn px-4 py-2 ms-2">Go to Spiritual Page</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+
+{% include 'partials/footer.html' %}
+<script>
+    const sounds = [
+        {
+            title: "Birds Chirping & River",
+            audio: "https://archive.org/download/8HOURSOfRelaxingNatureMusicWithBirdsongMeditationWorkStudySleepRelaxation/Relaxing%20Ocean.mp3"
+        },
+        {
+            title: "Gentle River Flow",
+            audio: "https://archive.org/download/8HOURSOfRelaxingNatureMusicWithBirdsongMeditationWorkStudySleepRelaxation/Relaxing%20Music%20with%20Nature%20Sounds%20-%20Waterfall%20HD.mp3"
+        },
+        {
+            title: "Ocean Waves",
+            audio: "https://archive.org/download/8HOURSOfRelaxingNatureMusicWithBirdsongMeditationWorkStudySleepRelaxation/Relaxing%20Sleep%20Music%20Deep%20Sleeping%20Music%2C%20Relaxing%20Music%2C%20Stress%20Relief%2C%20Meditation%20Music%20%E2%98%8568.mp3"
+        },
+        {
+            title: "Calm Rain in Forest",
+            audio: "https://archive.org/download/8HOURSOfRelaxingNatureMusicWithBirdsongMeditationWorkStudySleepRelaxation/Summer%20Forest.mp3"
+        },
+        {
+            title: "Deep Forest Ambience",
+            audio: "https://archive.org/download/8HOURSOfRelaxingNatureMusicWithBirdsongMeditationWorkStudySleepRelaxation/Thunderstorm.mp3"
+        }
+    ];
+
+    let currentSound = 0;
+
+    function updateSoundDisplay() {
+        const sound = sounds[currentSound];
+        document.getElementById('meditation-title').innerText = sound.title;
+        const audioPlayer = document.getElementById('meditation-player');
+        audioPlayer.pause();
+        audioPlayer.src = sound.audio;
+        audioPlayer.load();
+        audioPlayer.play(); // Auto play after update
+    }
+
+    function nextSound() {
+        const audioPlayer = document.getElementById('meditation-player');
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+        currentSound = (currentSound + 1) % sounds.length;
+        updateSoundDisplay();
+    }
+
+    // Load first sound on page load
+    window.onload = updateSoundDisplay;
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
