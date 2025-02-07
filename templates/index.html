@@ -1,0 +1,49 @@
+{% include 'partials/header.html' %}
+
+<div class="position-relative text-center first-photo">
+    <img src="{{ url_for('static', filename='images/image.jpg') }}" alt="Descriptive Image"
+        class="img-fluid first-photo" style="width: 95%; height: auto;">
+    <div class="position-absolute text-img start-50 translate-middle">
+        <h1>AI can help save lives!</h1>
+        <p style="font-size: 1.2rem;">Hear the Unspoken, Help the Heart</p>
+        <button onclick="window.location.href='/detection';"
+            style="padding: 10px 20px; background-color: teal; color: white; border: none; border-radius: 5px; font-size: 20px; cursor: pointer;">Try
+            Now</button>
+    </div>
+</div>
+
+<div class="container text-center mt-3 pt-3 features">
+    <h1>What we Offer?</h1>
+    <div class="row mt-5">
+        <div class="col-lg-3">
+            <img src="{{ url_for('static', filename='images/feature1.png') }}" alt="Logo" class="rounded-circle"
+                width="140" height="140">
+            <h2 class="fw-normal text-white">Mental Insights</h2>
+            <p>Simply share the voice with us, and we’ll help you understand the mental well-being with our advanced
+                audio-based predictions.</p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-3">
+            <img src="{{ url_for('static', filename='images/feature2.png') }}" alt="Logo" class="rounded-circle"
+                width="140" height="140">
+            <h2 class="fw-normal text-white">Educational Resources</h2>
+            <p>Explore educational resources that empower how to take control of the mental health.</p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-3">
+            <img src="{{ url_for('static', filename='images/feature3.png') }}" alt="Logo" class="rounded-circle"
+                width="140" height="140">
+            <h2 class="fw-normal text-white">Spiritual Guidance</h2>
+            <p>Get daily spiritual uplifting messages that guide and comfort you, helping you stay positive
+                mentally.</p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-3">
+            <img src="{{ url_for('static', filename='images/feature4.png') }}" alt="Logo" class="rounded-circle"
+                width="140" height="140">
+            <h2 class="fw-normal text-white">Reach Counselor</h2>
+            <p>Connect with expert counselors who are here to support you and help you navigate through tough times.
+            </p>
+        </div><!-- /.col-lg-4 -->
+    </div>
+
+</div>
+
+{% include 'partials/footer.html' %}
