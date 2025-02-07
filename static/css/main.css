@@ -71,3 +71,722 @@ body {
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
+
+.text-img {
+    top: 75%
+}
+
+.first-photo {
+    color: teal;
+    font-family: sans-serif;
+    border-radius: 3%;
+}
+
+.features {
+    font-family: sans-serif;
+    font-weight: 600;
+}
+
+.subtitle {
+    margin: 2px;
+    font-weight: 500;
+}
+
+
+
+#audioFile {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ced4da;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#audioFile:hover {
+    border-color: teal;
+    box-shadow: 0 0 5px rgba(0, 128, 128, 0.5);
+}
+
+#audioFile:focus {
+    border-color: teal;
+    box-shadow: 0 0 8px rgba(0, 128, 128, 0.8);
+    outline: none;
+}
+
+.analyze {
+    background-color: #008080;
+    font-size: 1rem;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-weight: 600;
+}
+
+.analyze:hover {
+    background-color: #007373;
+    border: 1px solid #004d4d;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    color: white;
+    transform: scale(1.05);
+}
+
+.btn-custom {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+.education {
+    background-color: teal;
+    color: white;
+}
+
+.education:hover {
+    background-color: teal;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 128, 128, 0.4);
+    transform: translateY(-3px);
+    color: white;
+}
+
+.spiritual {
+    background-color: teal;
+    color: white;
+}
+
+.spiritual:hover {
+    background-color: teal;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 128, 128, 0.4);
+    transform: translateY(-3px);
+    color: white;
+}
+
+.counsellors {
+    background-color: teal;
+    color: white;
+}
+
+.counsellors:hover {
+    background-color: teal;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 128, 128, 0.4);
+    transform: translateY(-3px);
+    color: white;
+}
+
+
+.emergency {
+    background-color: teal;
+    color: white;
+}
+
+.emergency:hover {
+    background-color: teal;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 128, 128, 0.4);
+    transform: translateY(-3px);
+    color: white;
+}
+
+
+.alert-line {
+    background-color: rgba(0, 128, 128, 0.7);
+    color: black;
+}
+
+
+.mission-box {
+    background-color: bisque;
+    color: teal;
+    border: 1px solid teal;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f7f7f7;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mission-box .list-group-item {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: transparent;
+}
+
+.mission-box .list-group-item:hover {
+    background-color: rgba(0, 128, 128, 0.1);
+    cursor: pointer;
+}
+
+
+.mission-box .bi {
+    font-size: 20px;
+}
+
+
+
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.team-card .card-img-top {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 4px solid #ffffff;
+    transition: transform 0.3s ease;
+}
+
+
+.team-card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+
+.team-card .card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 15px;
+    color: #2c3e50;
+}
+
+.team-card .card-text {
+    font-size: 1rem;
+    color: #7f8c8d;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+@media (max-width: 576px) {
+    .team-card .card-img-top {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+
+/* Style for the Arabic text */
+.arabic {
+    font-family: 'Amiri', serif;
+    /* Classic Arabic font */
+    line-height: 1.6;
+    color: #3a3b3c;
+    /* Soothing dark color */
+}
+
+/* Styling the card */
+#quran-section .card {
+    background-color: #fdfdfd;
+    /* Light background */
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Base button styling */
+.next-verse {
+    background-color: #008080;
+    /* Teal background */
+    color: white;
+    /* White text */
+    border: none;
+    /* Remove border */
+    border-radius: 25px;
+    /* Rounded corners */
+    transition: all 0.3s ease;
+    /* Smooth hover effect */
+    font-weight: 600;
+    /* Slightly bold text */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+}
+
+/* Hover effect */
+.next-verse:hover {
+    background-color: #007890;
+    /* Darker teal on hover */
+    color: #fdfdfd;
+    /* Ensure bright text on hover */
+    transform: translateY(-3px);
+    /* Slight lift effect */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    /* Enhanced shadow */
+}
+
+.headline-quran {
+    color: white;
+    font-weight: 600;
+}
+
+/* Base styling for the audio player */
+.audio-player {
+    width: 100%;
+    /* Full width for responsiveness */
+    max-width: 800px;
+    /* Limit the width for larger screens */
+    margin: 20px auto;
+    /* Center the element */
+    border: 2px solid teal;
+    /* Teal border */
+    border-radius: 15px;
+    /* Rounded edges */
+    background-color: #f9f9f9;
+    /* Light background */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Smooth transition effects */
+}
+
+/* Hover effect */
+.audio-player:hover {
+    transform: scale(1.03);
+    /* Slightly enlarge on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    /* Enhanced shadow on hover */
+}
+
+/* Focus effect (when clicked or active) */
+.audio-player:focus {
+    outline: none;
+    /* Remove default outline */
+    border: 3px solid #014d4e;
+    /* Darker teal border for focus */
+}
+
+.spiritual-photo {
+    position: relative;
+    text-align: center;
+    margin: 20px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.spiritual-image {
+    filter: brightness(60%) contrast(90%);
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+}
+
+.text-on-img {
+    color: #ffffff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    font-family: 'Arial', sans-serif;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+}
+
+.text-on-img h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.text-on-img button {
+    background-color: #005f5f;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.text-on-img button:hover {
+    background-color: #007a7a;
+    transform: scale(1.05);
+}
+
+
+/* General Styling */
+
+/* Heading Styling */
+.heading-edu {
+    color: bisque;
+    /* Deep navy */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tagline-edu {
+    color: bisque;
+    /* Subtle gray */
+    font-style: italic;
+}
+
+/* Button Filters */
+.buttons-edu .btn {
+    font-size: 1rem;
+    margin: 0 10px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    border: 2px solid white;
+    /* Blue border */
+    color: bisque;
+    /* Blue text */
+    background: transparent;
+}
+
+.buttons-edu .btn:hover {
+    background-color: bisque;
+    color: teal;
+}
+
+.buttons-edu .btn.active {
+    background-color: bisque;
+    color: teal;
+    border-color: bisque;
+}
+
+/* Articles Grid */
+#articles-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Article Cards */
+.article-card {
+    background: #ecf0f1;
+    /* Light gray background */
+    border: 1px solid #dcdde1;
+    /* Soft border */
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 300px;
+    flex: 1 1 calc(33.333% - 20px);
+    /* Responsive 3-column layout */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.article-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.article-title {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.article-description {
+    font-size: 0.95rem;
+    color: #7f8c8d;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.article-link {
+    font-weight: bold;
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.article-link:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .article-card {
+        flex: 1 1 calc(50% - 20px);
+        /* 2-column layout */
+    }
+}
+
+@media (max-width: 576px) {
+    .article-card {
+        flex: 1 1 100%;
+        /* Single-column layout */
+    }
+
+    .buttons-edu .btn {
+        margin: 5px 0;
+        padding: 8px 15px;
+    }
+}
+
+
+
+.educational-photo {
+    position: relative;
+    text-align: center;
+    margin: 20px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.educational-image {
+    filter: brightness(60%) contrast(90%);
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+}
+
+.text-on-img-2 {
+    color: #ffffff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    font-family: 'Arial', sans-serif;
+    top: 10%;
+    /* Moves the text 10% down from the top of the image */
+    left: 50%;
+    transform: translateX(-50%);
+    /* Centers the text horizontally */
+    padding: 10px 20px;
+}
+
+.text-on-img-2 h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.text-on-img-2 button {
+    background-color: #005f5f;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.text-on-img-2 button:hover {
+    background-color: #007a7a;
+    transform: scale(1.05);
+}
+
+.emergency-contacts {
+    background-color: bisque;
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    padding: 40px 30px;
+    margin-top: 20px;
+}
+
+.teal-heading {
+    color: #00695c;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 20px;
+}
+
+.para {
+    font-size: 1.2rem;
+    color: #004d40;
+    line-height: 1.6;
+    font-weight: 500;
+    margin-bottom: 30px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.button-emergency {
+    background-color: #004d40;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.button-emergency:hover {
+    background-color: #00796b;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.button-emergency:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* General Styling for the Feedback Form */
+.feedback-form {
+    background-color: antiquewhite;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    max-width: 700px;
+    margin: auto;
+}
+
+.form-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: teal;
+}
+
+.form-subtitle {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+.input-field {
+    border: 2px solid #ced4da;
+    border-radius: 8px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-field:focus {
+    border-color: teal;
+    box-shadow: 0px 0px 8px rgba(0, 128, 128, 0.3);
+}
+
+textarea.input-field {
+    resize: none;
+}
+
+.btn-submit {
+    background-color: teal;
+    color: bisque;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #005f5f;
+    transform: translateY(-3px);
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .feedback-form {
+        padding: 20px;
+    }
+
+    .form-title {
+        font-size: 1.8rem;
+    }
+
+    .form-subtitle {
+        font-size: 0.9rem;
+    }
+}
+
+/* Checkbox Styling */
+.form-check-input:checked {
+    background-color: teal;
+    border-color: teal;
+}
+
+
+
+.faq-title {
+    font-size: 2rem;
+    color: bisque;
+    font-weight: bold;
+}
+
+.faq-container .accordion-item {
+    border: none;
+    border-bottom: 1px solid #ddd;
+}
+
+.faq-question {
+    background-color: antiquewhite;
+    color: teal;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: bisque;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.faq-answer {
+    font-size: 1rem;
+    color: #333;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: teal;
+    color: white;
+    box-shadow: none;
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23fff' class='bi bi-chevron-up' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M3.646 10.854a.5.5 0 0 1-.708-.708l4-4a.5.5 0 0 1 .708 0l4 4a.5.5 0 0 1-.708.708L8 7.707l-3.646 3.147z'/%3E%3C/svg%3E");
+}
+
+.accordion-button.collapsed::after {
+    background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23teal' class='bi bi-chevron-down' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M3.646 4.646a.5.5 0 0 1 .708 0L8 8.293l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+}
+
+
+.terms-page {
+    background-color: #f4f6f7;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+}
+
+.terms-page .section h4 {
+    border-bottom: 2px solid #2980b9;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+/* Specific Styling for Disclaimer Page */
+.disclaimer-page {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+}
+
+.disclaimer-page .section h4 {
+    border-bottom: 2px solid #e74c3c;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+/* Additional Styling for Responsive Design */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 2rem;
+    }
+
+    h4 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+}

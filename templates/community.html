@@ -1,0 +1,146 @@
+{% include 'partials/header.html' %}
+
+<div class="container mt-5 p-4 feedback-form">
+    <h2 class="text-center mb-4 form-title">We Value Your Feedback</h2>
+    <p class="text-center mb-5 form-subtitle">Let us know how we can improve our platform.</p>
+
+    <form>
+        <!-- Name -->
+        <div class="mb-4">
+            <label for="name" class="form-label">Your Name (Optional)</label>
+            <input type="text" id="name" class="form-control input-field" placeholder="Enter your name">
+        </div>
+
+        <!-- Email -->
+        <div class="mb-4">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" id="email" class="form-control input-field" placeholder="Enter your email" required>
+        </div>
+
+        <!-- Feedback Type -->
+        <div class="mb-4">
+            <label for="feedbackType" class="form-label">Feedback Type</label>
+            <select id="feedbackType" class="form-select input-field">
+                <option value="general">General Feedback</option>
+                <option value="bug">Bug Report</option>
+                <option value="feature">Feature Request</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+
+        <!-- Feedback -->
+        <div class="mb-4">
+            <label for="feedback" class="form-label">Your Feedback</label>
+            <textarea id="feedback" rows="5" class="form-control input-field" placeholder="Write your feedback here..."
+                required></textarea>
+        </div>
+
+        <!-- Rating -->
+        <div class="mb-4">
+            <label for="rating" class="form-label">Rate Us</label>
+            <select id="rating" class="form-select input-field">
+                <option value="1">1 - Poor</option>
+                <option value="2">2 - Fair</option>
+                <option value="3">3 - Good</option>
+                <option value="4" selected>4 - Very Good</option>
+                <option value="5">5 - Excellent</option>
+            </select>
+        </div>
+
+        <!-- Consent -->
+        <div class="mb-4 form-check">
+            <input type="checkbox" id="consent" class="form-check-input" required>
+            <label for="consent" class="form-check-label">I agree to share my feedback for improvement purposes.</label>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary btn-submit">Submit Feedback</button>
+        </div>
+    </form>
+</div>
+
+
+<div class="container my-5" id="FAQs-section">
+    <h2 class="text-center mb-4 faq-title">Frequently Asked Questions</h2>
+    <div class="accordion accordion-flush faq-container" id="faqAccordion">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="faqOneHeader">
+                <button class="accordion-button collapsed faq-question" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faqOne" aria-expanded="false" aria-controls="faqOne">
+                    What is HearToHelp?
+                </button>
+            </h2>
+            <div id="faqOne" class="accordion-collapse collapse" aria-labelledby="faqOneHeader"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body faq-answer">
+                    HearToHelp is a platform designed to provide mental health support and resources for individuals in
+                    need.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="faqTwoHeader">
+                <button class="accordion-button collapsed faq-question" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faqTwo" aria-expanded="false" aria-controls="faqTwo">
+                    How can I access the detection tools?
+                </button>
+            </h2>
+            <div id="faqTwo" class="accordion-collapse collapse" aria-labelledby="faqTwoHeader"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body faq-answer">
+                    You can access the detection tool through the <a href="/detection"
+                        style="color: teal;text-decoration: none;">Detection</a> page. It includes an AI-based tool for
+                    sound and analysis. You just need to upload a clean audio file that does not contain much noise.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="faqThreeHeader">
+                <button class="accordion-button collapsed faq-question" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faqThree" aria-expanded="false" aria-controls="faqThree">
+                    What more resources does HearToHelp offer?
+                </button>
+            </h2>
+            <div id="faqThree" class="accordion-collapse collapse" aria-labelledby="faqThreeHeader"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body faq-answer">
+                    You can access different resources on the <a href="/resources"
+                        style="color: teal;text-decoration: none;">Resources</a> page. It includes educational,
+                    spiritual, and other materials to improve mental health.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="faqFourHeader">
+                <button class="accordion-button collapsed faq-question" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faqFour" aria-expanded="false" aria-controls="faqFour">
+                    Is my information secure?
+                </button>
+            </h2>
+            <div id="faqFour" class="accordion-collapse collapse" aria-labelledby="faqFourHeader"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body faq-answer">
+                    Yes, we prioritize your privacy and ensure that your data is protected and used responsibly.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="faqFiveHeader">
+                <button class="accordion-button collapsed faq-question" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faqFive" aria-expanded="false" aria-controls="faqFive">
+                    Can I contribute to the community?
+                </button>
+            </h2>
+            <div id="faqFive" class="accordion-collapse collapse" aria-labelledby="faqFiveHeader"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body faq-answer">
+                    Yes, you can contribute by sharing your feedback, stories, or helping others in the <a
+                        href="/community" style="color: teal;text-decoration: none;">Community Support</a> section.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'partials/footer.html' %}

@@ -1,0 +1,175 @@
+{% include 'partials/header.html' %}
+<div class="px-4 py-4 my-4 text-center">
+    <img class="d-block mx-auto mb-2 logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="" width="72"
+        height="72">
+    <h1 class="display-5 fw-bold text-body-emphasis">About HearToHelp</h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4 my-5" style="color: white;">We are a group of students from Jamia Millia Islamia, united
+            by a passion for innovation using technology. Using the power of advanced machine learning algorithms,
+            we aim to build meaningful solutions that address and reslove real-world problems. We have a passion to
+            create impactful and innovative products that contribute to the society, empowering individuals and
+            communities.
+
+            Together, we strive to combine technology with innovation, and pushing the boundaries to make the world
+            a better place.</p>
+    </div>
+</div>
+
+<div class="container text-center mt-3 pt-3 principles" id="Principles">
+    <h1 class="display-5 fw-bold text-body-emphasis">Core Principles</h1>
+
+    <div class="row ">
+        <div class="col-lg-3">
+            <img src="{{ url_for('static', filename='images/innovation.png') }}" alt="Logo" class="rounded-circle"
+                width="140" height="140">
+            <h3 class="fw-bold">Making innovative solutions</h3>
+            <p>We believe in using creativity to create solutions that break boundaries. Our goal is to make a
+                difference meaningful ideas that are impactful.</p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-3">
+            <img src="{{ url_for('static', filename='images/community.png') }}" alt="Logo" class="rounded-circle"
+                width="140" height="140">
+            <h3 class="fw-bold ">Empowering Communities</h3>
+            <p>Our mission is to use the power of technology to empower individuals and uplift communities for
+                long-term societal benefits.</p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-3">
+            <img src="{{ url_for('static', filename='images/excellence.png') }}" alt="Logo" class="rounded-circle"
+                width="140" height="140">
+            <h3 class="fw-bold ">Commitment to Excellence</h3>
+            <p>We are dedicated to delivering high-quality solutions with precision and efficiency.</p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-3">
+            <img src="{{ url_for('static', filename='images/ethics.png') }}" alt="Logo" class="rounded-circle"
+                width="140" height="140">
+            <h3 class="fw-bold ">Sustainability and Ethics</h3>
+            <p>We are committed to ethical practices and sustainable approaches in every step of our journey. We
+                take full responsibility for handling users' data with care and respect. </p>
+        </div><!-- /.col-lg-4 -->
+    </div>
+</div>
+
+<div class="container my-5" id="mission-div">
+    <!-- Our Mission Section -->
+    <div class="text-center mb-4">
+        <h1 class="display-5 fw-bold text-body-emphasis">Our Mission</h1>
+
+        <p class="lead text-white">Hear the Unspoken, Help the Heart</p>
+    </div>
+    <div class="row align-items-center">
+        <!-- Mission Statement -->
+        <div class="col-md-6">
+            <p class="fs-5 text-white">
+                Our mission is to create an ease for the society and individuals with the help of advanced machine
+                learning and artificial intelligence techniques. Together we can change the world with the help of
+                artificial intelligence.
+            </p>
+        </div>
+        <!-- Key Focus Areas -->
+        <div class="container col-md-6 mission-box ">
+            <ul class="list-group ">
+                <li class="list-group-item d-flex align-items-center border-0 rounded-3 mb-3 shadow-sm">
+                    <i class="bi bi-heart-pulse-fill me-3 text-primary fs-3"></i>
+                    <div>
+                        <strong class="d-block fs-5">Improving Healthcare Accessibility</strong>
+                        <p class="mb-0">Develop tools that simplify and enhance healthcare diagnosis and treatment
+                            for everyone.</p>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex align-items-center border-0 rounded-3 mb-3 shadow-sm">
+                    <i class="bi bi-emoji-smile-fill me-3 text-success fs-3"></i>
+                    <div>
+                        <strong class="d-block fs-5">Promoting Mental Well-being</strong>
+                        <p class="mb-0">Use AI to provide support and raise awareness about emotional and mental
+                            health.</p>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex align-items-center border-0 rounded-3 shadow-sm">
+                    <i class="bi bi-people-fill me-3 text-warning fs-3"></i>
+                    <div>
+                        <strong class="d-block fs-5">Empowering Communities</strong>
+                        <p class="mb-0">Build solutions that strengthen local communities.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<div class="container my-5 " id="Team">
+    <div class="text-center mb-5">
+        <h1 class="display-5 fw-bold text-body-emphasis">Meet Our Team</h1>
+        <p class="lead text-white">We are a group of passionate individuals committed to making a positive impact
+            with our skills, knowledge and innovative ideas.</p>
+    </div>
+
+    <div class="container my-5">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+            <!-- Team Member 1 -->
+            <div class="col team-card">
+                <div class="card shadow-lg border-0 rounded-3">
+                    <img src="{{ url_for('static', filename='images/me.jpeg') }}"
+                        class="card-img-top rounded-circle mx-auto mt-3" alt="Team Member 1"
+                        style="width: 180px; height: 180px;">
+                    <div class="card-body text-center">
+                        <a href="https://www.linkedin.com/in/mohdadnan-khan" style="text-decoration: none;">
+                            <h5 class="card-title fs-4 fw-bold text-body-emphasis">Mohd Adnan Khan</h5>
+                        </a>
+                        <p class="card-text text-muted">Web Dev and ML engineer</p>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Team Member 2 -->
+            <div class="col team-card">
+                <div class="card shadow-lg border-0 rounded-3">
+                    <img src="{{ url_for('static', filename='images/shamoon.jpeg') }}"
+                        class="card-img-top rounded-circle mx-auto mt-3" alt="Team Member 2"
+                        style="width: 180px; height: 180px;">
+                    <div class="card-body text-center">
+                        <a href="https://www.linkedin.com/in/mohd-shamoon-9261402b4" style="text-decoration: none;">
+
+                            <h5 class="card-title fs-4 fw-bold text-body-emphasis">Mohd Shamoon</h5>
+                        </a>
+                        <p class="card-text text-muted">Backend and Devops engineer</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="col team-card">
+                <div class="card shadow-lg border-0 rounded-3">
+                    <img src="{{ url_for('static', filename='images/ashrah.jpeg') }}"
+                        class="card-img-top rounded-circle mx-auto mt-3" alt="Team Member 3"
+                        style="width: 180px; height: 180px;">
+                    <div class="card-body text-center">
+                        <a href="https://www.linkedin.com/in/muhammed-ashrah" style="text-decoration: none;">
+                            <h5 class="card-title fs-4 fw-bold text-body-emphasis">Muhammed Ashrah</h5>
+                        </a>
+                        <p class="card-text text-muted">AI engineer and R&D expert</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Member 4 -->
+            <div class="col team-card">
+                <div class="card shadow-lg border-0 rounded-3">
+                    <img src="{{ url_for('static', filename='images/reyyan.jpeg') }}"
+                        class="card-img-top rounded-circle mx-auto mt-3" alt="Team Member 4"
+                        style="width: 180px; height: 180px;">
+                    <div class="card-body text-center">
+                        <a href="https://www.linkedin.com/in/mohd-reyaan" style="text-decoration: none;">
+                            <h5 class="card-title fs-4 fw-bold text-body-emphasis">Mohd Reyaan</h5>
+                        </a>
+                        <p class="card-text text-muted">Full Stack Developer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {% include 'partials/footer.html' %}
