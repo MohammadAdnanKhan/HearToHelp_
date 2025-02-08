@@ -1,5 +1,6 @@
 import os
 from flask import Flask, request, jsonify, render_template
+from flask_cors import CORS
 from werkzeug.utils import secure_filename
 import warnings
 from emotion_recognizer import EmotionRecognizer
@@ -7,6 +8,7 @@ from emotion_recognizer import EmotionRecognizer
 warnings.filterwarnings("ignore")
 
 app = Flask(__name__)
+CORS(app)
 app.config["UPLOAD_FOLDER"] = "uploads"
 os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
 
@@ -97,4 +99,5 @@ def detect_emotion():
     
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    PORT = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=5000, debug=False)
