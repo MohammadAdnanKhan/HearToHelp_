@@ -13,6 +13,25 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
 
+    <style>
+        #confPerc {
+            width: 80%;
+            background-color: #cccccc;
+            height: 1.5rem;
+            border-radius: 20px;
+            margin: 0 auto;
+        }
+
+        #confidenceBar {
+            height: 100%;
+            background-color: rgb(0, 105, 105);
+            border-radius: inherit;
+            text-align: right;
+            color: white;
+            font-weight: bold;
+            padding-right: 0.25rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -55,6 +74,22 @@
                 <p class="text-center text-muted">The results will be displayed here after the analysis.</p>
             </div>
 
+
+            <!-- Past results Section -->
+            <div class="bg-light border rounded-3 p-4">
+                <h3 class="text-center">Past Results</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Checked At</th>
+                            <th scope="col">Result</th>
+                            <th scope="col">Confidence</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultsTableBody">
+                    </tbody>
+                </table>
+            </div>
 
 
             <!-- Other Resources Section -->
