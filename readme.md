@@ -60,6 +60,24 @@ The app will be available at: **http://127.0.0.1:5000/**
 3. Our **deep learning model** (LSTM) predicts the speaker’s **emotional state**.  
 4. The result is displayed on the **web app** and the results are saved (We don not save the audios because of our privacy policy).  
 
+## 🤖 WebApp Screenshots
+**Home Page**
+![Alt text](static/images/home.png)
+
+**Detection Page**
+![Alt text](static/images/detection.png)
+
+**Resources Page**
+
+***Counselors Portal***
+![Alt text](static/images/counselors.png)
+
+***Educational Resources***
+![Alt text](static/images/edu.png)
+
+***Meditational Resources***
+![Alt text](static/images/meditation.png)
+
 ## 📅 Future Plans  
 - 🌍 Deploy on cloud (AWS, Heroku, Render, etc.)  
 - 📱 Develop a mobile app  
