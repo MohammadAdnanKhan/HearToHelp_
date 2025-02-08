@@ -69,7 +69,7 @@ The app will be available at: **http://127.0.0.1:5000/**
 We welcome contributions! Feel free to open an **issue** or **pull request**.  
 
 ## 📜 License  
-This project is **MIT Licensed**.  
+This project is **MIT Licensed**, - see the [LICENSE](./LICENSE) file for details.
 
 ---
 
