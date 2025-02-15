@@ -2,3 +2,6 @@ imp.txt
 .venv
 __pycache__
 aud
+.env
+*.rest
+instance

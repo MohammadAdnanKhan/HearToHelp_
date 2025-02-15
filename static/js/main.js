@@ -1,6 +1,12 @@
 function analyzeAudio() {
+    const access_token = sessionStorage.getItem('access_token');
+    const username = sessionStorage.getItem('username');
+    if (!access_token || !username) {
+        alert('Session expired. Please login again.');
+        window.location.href = '/auth';
+        return;
+    }
     const audioFile = document.getElementById('audioFile').files[0];
-    const confidenceBar = document.getElementById('confidenceBar');
     // Check if the user has uploaded a file
     if (!audioFile) {
         alert('Please upload an audio file');
@@ -20,10 +26,16 @@ function analyzeAudio() {
     // Send the audio file to the server via FormData
     fetch('/api/detect', {
         method: 'POST',
+        headers: { 'Authorization': `Bearer ${access_token}` },
         body: formData // Send the FormData with the audio file
     })
         .then(response => response.json())
         .then(data => {
+            if (data.error == 'Unauthorized') {
+                alert('Session expired. Please login again.');
+                window.location.href = '/auth';
+                return;
+            }
             if (data.error) {
                 document.getElementById('resultsDiv').innerHTML = `
                 <h3 class="text-center">Error</h3>
@@ -47,7 +59,7 @@ function analyzeAudio() {
                 </div>
             `;
                 // Save the result to local storage
-                const pastResults = localStorage.getItem('pastResults');
+                const pastResults = localStorage.getItem(`pastResults:${username}`);
                 if (pastResults) {
                     const resultsObj = JSON.parse(pastResults);
                     resultsObj.push({
@@ -55,9 +67,9 @@ function analyzeAudio() {
                         emotion: emotion,
                         confidence: data.confidence
                     });
-                    localStorage.setItem('pastResults', JSON.stringify(resultsObj));
+                    localStorage.setItem(`pastResults:${username}`, JSON.stringify(resultsObj));
                 } else {
-                    localStorage.setItem('pastResults', JSON.stringify([{
+                    localStorage.setItem(`pastResults:${username}`, JSON.stringify([{
                         date: new Date().toLocaleString(),
                         emotion: emotion,
                         confidence: data.confidence
@@ -65,7 +77,7 @@ function analyzeAudio() {
                 }
 
                 // Update the past results table
-                showPastResults();
+                showPastResults(username);
             }
         })
         .catch(error => {
@@ -77,9 +89,9 @@ function analyzeAudio() {
         });
 }
 
-const showPastResults = () => {
+const showPastResults = (username) => {
     const resultsTableBody = document.getElementById('resultsTableBody');
-    const pastResults = localStorage.getItem('pastResults');
+    const pastResults = localStorage.getItem(`pastResults:${username}`);
 
     if (pastResults) {
         resultsTableBody.innerHTML = ''; // Clear the table body
@@ -108,5 +120,6 @@ const showPastResults = () => {
 }
 
 window.onload = function () {
-    showPastResults();
+    const username = sessionStorage.getItem('username');
+    showPastResults(username);
 }
